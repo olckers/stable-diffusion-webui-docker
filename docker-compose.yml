@@ -25,14 +25,14 @@ services:
     volumes:
       - *v1
 
-  auto: &automatic
+  auto: &automatics
     <<: *base_service
     profiles: ["auto"]
     build: ./services/AUTOMATIC1111
     image: sd-auto:68
     environment:
-      - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api
-
+      - CLI_ARGS=--allow-code --xformers --enable-insecure-extension-access --api
+      # --medvram
   auto-cpu:
     <<: *automatic
     profiles: ["auto-cpu"]
